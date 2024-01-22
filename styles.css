@@ -1,0 +1,21 @@
+#check-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50%;
+    margin-right: 50%;
+    margin-top: 20px;
+
+}
+
+#result {
+    
+    height: 100px;
+    width: 100px;
+}
+.container{
+    border-radius: 25px;
+    height: 350px;
+    width: 500px;
+    border: 20px solid black;
+}
