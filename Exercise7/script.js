@@ -61,7 +61,8 @@ button.addEventListener("click", () => {
         if (denomination[0] == "ONE HUNDRED") {
           result2 = Math.floor(change2 / 100);
           if (result2 * 100 >= denomination[1]) {
-            change2 = (change2 - denomination[1]).toFixed(2);
+            change2 = calculateChange(change2, denomination[1])
+            
             formattedString += `${denomination[0]}: $${denomination[1]} `;
           } else if (result2 > 0) {
             change2 = (change2 - result2 * 100).toFixed(2);
@@ -71,7 +72,7 @@ button.addEventListener("click", () => {
           result2 = Math.floor(change2 / 20);
 
           if (result2 * 20 >= denomination[1]) {
-            change2 = (change2 - denomination[1]).toFixed(2);
+            change2 = calculateChange(change2, denomination[1]);
             formattedString += `${denomination[0]}: $${denomination[1]} `;
           } else if (result2 > 0) {
             change2 = (change2 - result2 * 20).toFixed(2);
@@ -81,7 +82,7 @@ button.addEventListener("click", () => {
           result2 = Math.floor(change2 / 10);
 
           if (result2 * 10 >= denomination[1]) {
-            change2 = (change2 - denomination[1]).toFixed(2);
+            change2 = calculateChange(change2, denomination[1]);
             formattedString += `${denomination[0]}: $${denomination[1]} `;
           } else if (result2 > 0) {
             change2 = (change2 - result2 * 10).toFixed(2);
@@ -91,7 +92,7 @@ button.addEventListener("click", () => {
           result2 = Math.floor(change2 / 5);
 
           if (result2 * 5 >= denomination[1]) {
-            change2 = (change2 - denomination[1]).toFixed(2);
+            change2 = calculateChange(change2, denomination[1]);
             formattedString += `${denomination[0]}: $${denomination[1]} `;
           } else if (result2 > 0) {
             change2 = (change2 - result2 * 5).toFixed(2);
@@ -101,7 +102,7 @@ button.addEventListener("click", () => {
           result2 = Math.floor(change2 / 1);
 
           if (result2 * 1 >= denomination[1]) {
-            change2 = (change2 - denomination[1]).toFixed(2);
+            change2 = calculateChange(change2, denomination[1]);
             formattedString += `${denomination[0]}: $${denomination[1]} `;
           } else if (result2 > 0) {
             change2 = (change2 - result2 * 1).toFixed(2);
@@ -111,7 +112,7 @@ button.addEventListener("click", () => {
           result2 = Math.floor(change2 / 0.25);
 
           if (result2 * 0.25 >= denomination[1]) {
-            change2 = (change2 - denomination[1]).toFixed(2);
+            change2 = calculateChange(change2, denomination[1]);
             formattedString += `${denomination[0]}: $${denomination[1]} `;
           } else if (result2 > 0) {
             change2 = (change2 - result2 * 0.25).toFixed(2);
@@ -121,7 +122,7 @@ button.addEventListener("click", () => {
           result2 = Math.floor(change2 / 0.1);
 
           if (result2 * 0.1 >= denomination[1]) {
-            change2 = (change2 - denomination[1]).toFixed(2);
+            change2 = calculateChange(change2, denomination[1]);
             formattedString += `${denomination[0]}: $${denomination[1]} `;
           } else if (result2 > 0) {
             change2 = (change2 - result2 * 0.1).toFixed(2);
@@ -131,7 +132,7 @@ button.addEventListener("click", () => {
           result2 = Math.floor(change2 / 0.05);
 
           if (result2 * 0.05 >= denomination[1]) {
-            change2 = (change2 - denomination[1]).toFixed(2);
+            change2 = calculateChange(change2, denomination[1]);
             formattedString += `${denomination[0]}: $${denomination[1]} `;
           } else if (result2 > 0) {
             change2 = (change2 - result2 * 0.05).toFixed(2);
@@ -142,7 +143,7 @@ button.addEventListener("click", () => {
         }
 
         if (result2 * 0.01 >= denomination[1]) {
-          change2 = (change2 - denomination[1]).toFixed(2);
+          change2 = calculateChange(change2, denomination[1]);
           formattedString += `${denomination[0]}: $${denomination[1]} `;
         } else if (result2 > 0) {
           change2 = (change2 - result2 * 0.01).toFixed(2);
@@ -153,35 +154,11 @@ button.addEventListener("click", () => {
   }
 });
 
-//  const denominations = [
-//    { name: "ONE HUNDRED: ", value: 100 },
-//    { name: "TWENTY: ", value: 20 },
-//    { name: "TEN: ", value: 10 },
-//    { name: "FIVE: ", value: 5 },
-//    { name: "ONE: ", value: 1 },
-//    { name: "QUARTER: ", value: 0.25 },
-//    { name: "DIME: ", value: 0.1 },
-//    { name: "NICKEL: ", value: 0.05 },
-//    { name: "PENNY: ", value: 0.01 },
-// ];
 
-// function calculateChange(change, denomination) {
-//   let result = 0;
-//   result = (change - denomination).toFixed(2);
-//   return result;
-// }
 
-// denominations.forEach((denomination) => {
-//   const count = Math.floor(change / denomination.value);
-//   if (count > 0) {
-//     result.denominations[denomination.name] = count;
-//     change -= count * denomination.value;
-//     change = Math.round(change * 100) / 100;
-//   }
-// });
+ function calculateChange(change, denomination) {
+   let result = 0;
+   result = (change - denomination).toFixed(2);
+  return result;
+ }
 
-//как може да бъде завъртян този if else statement w един for each iteration, който да
-// да сравнява стойностите от елемента който е в момента със масива който съдържа в момента тези стойности
-// например  denominations.forEach((denomination) => denomination[0] == arr[i][0]{
-// result2 == 0;
-// result * denomination object =
